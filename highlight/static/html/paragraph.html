@@ -1,0 +1,36 @@
+ <input id="hd-field" type="hidden" name="lesson_id" value="{{ lesson.id }}">
+<fieldset>
+<h2>Lesson: {{lesson.lesson_name }}</h2>
+<div class="ad-pr">
+<label class="pr">Add Pragraph</label>
+<textarea id="para" rows="10" cols="80">
+	{% if lesson.paragraph %}
+		{{lesson.paragraph }}
+	{% endif %}	
+</textarea>
+<button class="bt-success" id="submit" value="{{ lesson.id }}">Save</button>
+<a class="bt" href="/scenario/{{scen_id}}/{{course_id}}/?c_id={{course_id}}">Cancel</a>
+</div>
+
+<div id ="display-pr" class="ad-pr par">
+	<label class="pr">Paragraph</label>
+		<p id="par" class="pr-cl">{% if lesson.paragraph %}
+					{{ lesson.paragraph }}
+				{% else %}
+					<p class="pr-nl"> Nothing To Display</p>
+				{% endif %}
+		 </p>
+</div>
+</fieldset>
+
+ <div id="pop" class="popup" data-popup="popup-1">
+    <div class="popup-inner">
+        <h2>Hello ! Save defination to word</h2>
+        <label>keyword:</label></br>
+        <input id="keyword" type="text" name="key" readonly><br>
+        <label>Defination:</label></br>
+        <input id="defination" type="text" name="def" placeholder="Enter Defination">
+        <button id="save">save</button>
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    </div>
+</div>

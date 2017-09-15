@@ -1,0 +1,12 @@
+<fieldset>
+<!--<h1 class="header">Course:{{ course.course_name }}</h1>-->
+  <h4>({{course.course_name}})</h4>
+  <h2>List Of Lessons</h2>
+  <ol class="o-list">
+    {% for lesson in lessons %}
+      <li class="f-list">
+        <a id ="{{lesson.id}}" href="/scenario/{{scen_id}}/{{lesson.id}}/?l_id={{lesson.id}}">{{ lesson.lesson_name }}</a>
+      </li>
+    {% endfor %}
+  </ol>
+</fieldset>

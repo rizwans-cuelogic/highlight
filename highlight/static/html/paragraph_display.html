@@ -1,0 +1,23 @@
+ <input id="hd-field" type="hidden" name="lesson_id" value="{{ lesson.id }}">
+<fieldset>
+<h2>Lesson: {{ lesson.lesson_name }}</h2>
+
+{% if lesson.paragraph %}
+		<label class="pr">Paragraph</label>
+		<p  id="par" class="pr-cl">{{ lesson.paragraph }}</p>
+</fieldset>	
+
+{% else %}
+	<p class="pr-nl"> Nothing To Display</p>
+{% endif %}
+
+<div id="pop" class="popup" data-popup="popup-1">
+    <div class="popup-inner">
+        <h2>Hello ! defination to word</h2>
+        <label>keyword:</label></br>
+        <p id="keyword" type="text" name="key"></p><br>
+        <label>Defination:</label></br>
+        <p id="defination" type="text" name="def"></p>
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    </div>
+</div>

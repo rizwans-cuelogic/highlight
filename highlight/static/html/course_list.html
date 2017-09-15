@@ -1,0 +1,20 @@
+{% autoescape off %}
+<div>
+  <section class="content">
+    <article class="content-primary" role="main">
+        <fieldset class="background-white">
+        <h2>Courses</h2>
+        <ol class="or-list">
+          {% for course in courses %}
+            <li class="field-list">
+              <a id ="{{course.id}}" href="/scenario/{{scen_id}}/{{course.id}}/?c_id={{course.id}}">{{ course.course_name }}</a>
+            </li>
+          {% endfor %}
+        </ol>
+        </fieldset>
+    </article>
+    
+</section>
+</div>
+
+{% endautoescape %}
