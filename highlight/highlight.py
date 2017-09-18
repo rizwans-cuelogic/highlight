@@ -101,6 +101,8 @@ class HighXBlock(XBlock):
                 fragment.add_content(loader.render_template('static/html/paragraph_display.html', context))
                 fragment.add_css(self.resource_string("static/css/paragraph.css"))
                 fragment.add_css(self.resource_string("static/css/popup.css"))
+                fragment.add_css(self.resource_string("static/tooltipster-master/dist/css/tooltipster.bundle.min.css"))
+                fragment.add_javascript(self.resource_string("static/tooltipster-master/dist/js/tooltipster.bundle.min.js"))
                 fragment.add_javascript(self.resource_string("static/js/src/st_paragraph.js"))
                 fragment.initialize_js('StPara')
                 return fragment
@@ -141,6 +143,7 @@ class HighXBlock(XBlock):
         if lesson_key:
             defination = lesson_key[0].defination
             response = {'status':'success',
+                        'key':key,
                         'defination':defination}
             res = json.dumps(response)
             response = json.loads(res)
@@ -155,10 +158,9 @@ class HighXBlock(XBlock):
         lesson_id=data['lesson_id']
         lesson_key = Xblockkey.objects.filter(lesson=lesson_id)
         if lesson_key:
-            list1 =[]
+            list1 ={}
             for i in lesson_key:
-                list1.append(i.keyword)
-
+                list1[i.keyword]=i.defination
 
             response = {'status':'success',
                         'list':list1}
